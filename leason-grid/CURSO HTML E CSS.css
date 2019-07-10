@@ -1,0 +1,280 @@
+/*
+Curso de HTML e css
+
+
+--First-css-Grid
+    Description > Como criar uma grid simples de 3x Colunas e 2x Linhas
+
+
+    -Display : Grid;
+        Quando eu utilizo a propriedade 'display' eu estou mudando o layout do elemento
+        No caso Display: grid, estou transformando o layout de uma div em uma grid (grade)
+
+    -Grid-template-columns : 
+        Estou definindo a quantidade de colunas, e seus tamanhos que a minha grid vai ter
+        Ex: grid-template-columns 100px auto 100px; -- 3 Colunas com a largura de 100px, automatico e 100px respectivamente
+
+    -Grid-template-rows : 
+        Define a quantidade delinhas e seus tamanhos 
+        Ex: grid-template-rows: 50px 50px 
+
+    -Grid-gap:
+        Define o expacamento entre os elementos da grid
+        Ex: grid-gap: 3px;
+--
+
+--Second-css-grid
+    Description > Unidade de medida para grids, função Repeat e Grid-template
+
+    -Fr (Fraction)
+        Unidade de medida utilizada somente em grids para criar layouts mais flexiveis
+        Fr representa uma fração do espaço disponivel na grid
+
+    -Repeat(,)
+        É uma função que recebe no primeiro paramentro a quantidade de vezes o que vai ser repetido,
+        e no segundo paramentro os valores a serem repetidos.
+        Ex: repeat(4,10px)
+            repeat(3,1fr)
+
+    -Grid-template: 'qtd_linhas' / 'qtd_colunas' ;
+        É um metodo mais simples de utilizar o grid-template-columns e grid-template-rows de forma simultanea
+        passando como parametro antes da '/' a quantidade de linhas, e depois da '/' a quantidade de colunas
+        Ex: grid-template: repeat(2,50px) / repeat(3,1f);
+        
+        Desse modo tendo o mesmo resultado que :
+            gird-template-columns: repeat(3,1rf);
+            grid-template-rows: repeat(2, 50px);
+
+-- 
+
+--Third-css-grid
+    Description > Como posisiconar os elementos na grid
+
+    -Grid-column-star: E grid-column-end: 
+        Esse comando diz em qual coluna o elemento deve comecar e em qual coluna deve terminar,
+        no caso de haver 2 colunas, existem 3 possibilidades:
+         
+        |________|_________| -> 2 colunas, porem 3 'linhas'
+        Quando usar o comando -> grid-column-start: 1; grid-columns-end:3;
+        quer dizer q o tamanho da coluna vai comecar na primeira linha e terminar na ultima (3)
+        ficando assim :
+        
+        |__________________|
+
+    -Grid-column : 'start' / 'end';
+        É o metodo mais rapido de utilizar o '-start' e o '-end', semelhante ao grid-template;
+        Antes da '/' coloca-se o start e depois da '/' o end;
+        Ex: grid-column: 1 / 3;
+        
+        Caso seja utilizado o valor '-1' para o 'end' o elemento ira se extender até o fim da grid,
+        no caso se a grid tem 4 elementos, os dois jeitos abaixo estariam corretos:
+
+        1º grid-column: 1/4;
+        2º grid-column: 1/-1;
+
+        O problema de utilizar -1 é que ele nao 'para' no ultimo elemento, por isso o elemento que 
+        tiver o valor -1 tem que ser a ultima coluna
+
+        Tambem é possivel utilizar 'span Var_valor';
+        o span ele vai se expandir a quantidade de colunas que vc colocar em seguida
+
+        Ex: grid-column: 1/span 2;
+        Em uma grid com 4 colunas ficaria assim
+
+        |___c1___|___c2___|__c3___|__c4__|
+        |______SPAN_______|
+    
+    -grid-row : 'start'/'end';
+        Funciona de forma semelhante ao grid-column, porem define o tamanho, quantidade delinhas que o 
+        elemento ira ocupar
+
+
+--
+
+--Fourth-css-grid
+    Description > Utilizando o conceito de area
+    
+    -Grid-template-areas: " ";
+    Esse comando de forma visual define 'variaveis' e as areas que vao ocupar nas linhas e colunas,
+    e depois em conjunto com o comando grid-area: ; define qual elemento ira ocupar a area definida pela
+    variavel;
+
+    Ex: grid-template-areas: "h h h h h h h h h h h h"
+                             "m c c c c c c c c c c c"
+                             "f f f f f f f f f f f f";
+
+    No caso se eu colocar dentro de uma classe o comando
+    grid-area: h;
+    aquele elemento ocupara a area que corresponde ao 'h' no template-areas;
+
+    Porem nao é possivel criar grids irregulares como: 
+    " h h h h "
+    " m h h c "
+
+    **Apeas é possivel criar retangulos
+    **Para deixar um espaço vazio pode-se colorar um '.'
+    Ex: grid-template-areas: ". h h h h h h h h h h h"
+                             "m c c c c c c c c c c c"
+                             ". f f f f f f f f f f f";
+
+
+--
+
+--Fifth-css-grid
+    Description > Auto-fit e MinMax()
+
+    -Auto-fit
+    esse comando faz com que o numero de colunas da grid se adeque a disponibilidade de espaço
+    no caso se tem espaço para uma nova coluna ele a adiciona (puxa o elemento da linha de baixo e o coloca
+    na linha de cima)
+
+    Porém quando se utiliza esse comando com a unidade de medida Fr, só ira ter uma elemento por linha
+    ja que o elemento se extenda a te o maximo que conseguir, por isso utiliza-se a função 'minmax(,)'
+
+    -Minmax(val_min,val_max)
+    Funcao que define o tamanho minimo para um elemento assim como seu tamanho maximo, que funciona perfeitamente
+    com o auto-fit ja que agora mesmo colocando 1fr como maximo ele nao expande ate o fim da tela.
+    
+    Ex: grid-template-column: repeat(auto-fit, minmax(100px,1fr));
+--
+
+--Sixth-css-grid
+    Description > Como no 5-css-grid são só especificadas 2 linhas no grid-template-rows, as outras linhas geradas
+    automaticamente nao ficam do tamanho ideal, para concertar isso é adicionado um novo comando.
+
+    -grid-auto-rows: ;
+    Com esse comando não é necessário mais utilizar o comando grid-template-rows, ja que toda linha gerada vai ter o tamanho
+    expecificado por esse comando.
+    
+    Ex: grid-auto-rows: 100%;
+
+--
+
+--Seventh-css-grid
+    Description > Como organizar os elementos dentro da grid, quando eles tem tamnhos diferentes
+
+    Adicionando o comando grid-column: auto / span 2; (como se utiliza o comando automatico 'auto', pode-se 
+    ocultar essa parte do comando, ficando assim : grid-column: span 2),faz com que as colunas dos itens que tem essa 
+    classe se expandam e posso se realocar dentro da grid (junto com o comando grid-auto-rows/auto-fit/...)
+    porem desse modo é capaz de ficar espços em branco na grid então utiliza-se outro comando para concertar isso
+
+    -grid-auto-flow: esse comando controla o algoritmo que arruma os itens de forma automática dentro da grid;
+    basta especificar qual vai ser a forma de se arrumar os itens, tendo os seguintes valores:
+        - row
+        - column
+        - dense
+        - row dense
+        - column dense
+        - inherit
+        - initial
+        - unset
+    
+    no exemplo estudado usamos a forma 'dense' que arruma pela densidade da img (o tamanho que ela ocupa)
+
+    Ex: grid-auto-flow: dense;
+--
+
+--Eighth
+    Description > Aprendendo a nomear linhas e colunas
+
+    
+    Utilizano um layout simples ja feito, aprendemos a nomear linhas e colunas dos comandos 'grid-template-columns' e 
+    'grid-template-rows', simplesmente basta adicionar '[ nome_da_linha/coluna ]'
+    
+    Ex:
+
+    grid-template-columns: 1fr 5fr;  => grid-template-columns: [main-start] 1fr [content-star] 5fr [content-end];
+    
+    Como nos sabemos apesar de ter 2 colunas temos 3 linhas:
+
+    |_______|_______|
+    l1      l2      l3
+
+    Do jeito que esta no exemplo quando utilizamos o grid-column: 1 / 2; dizemos que ele comeca na linha 'l1' e termina
+    na linha 'l2', porem com essa nova renomeação :
+
+    grid-template-columns: [main-start] 1fr [content-star] 5fr [content-end];
+    |__________________|______________________|
+    main-start         content-start         content-end
+
+    podemos simplesmente dizer:
+
+    grid-column: main-start / content-start;
+
+    Pode-se colocar mais de um nome em uma linha
+    Ex: grid-template-columns: [main-start] 1fr [content-start] 5fr [content-end main-end];
+
+    E no caso se eu quiser que o objeto comece na primeira coluna e termine na ultima , eu nao preciso
+    colocar 'main-start/main-end' pois como a nomeação das linhas foi feita com '-start' e '-end', basta eu colocar 
+    qual é o nome inicial, no caso:
+
+    grid-column: main;
+
+    Isso funciona para qualquer renomeação, porém deve estar utilizando ('nome1' + '-start') && ('nome1' + '-end') 
+    o '+' significa  concatenação;
+
+--
+
+--Ninth
+    Description > Justify-content e align-content
+
+    -Justify-content : ; Define como os elementos vão se ajustar a grid de forma Horizontal
+    pode possuir valores como:
+    
+
+        -start : inicio da grid
+        -end : fim da grid
+        -center : no centro da grid 
+        -space-between : coloca espaços entre os elementos da grid -> |E1  E2  E3|
+        -space-evenly : coloca espaços entre os elementos e as bordas -> |  E1  E2   E3  |
+        -space-around : semelhante ao space-evenly, porém coloca espaços menores entre as colunas '| |'
+
+    -Align-content: semelhante ao justify-content, porém ele funciona na vertical.
+--
+
+--Tenth
+    Decription > Justify-itens e align-itens
+    Esses dois comandos fazem com que os elemento da grid na qual ele esta presente se ajuste o maximo ou minimo possivel
+    e sua 'direção', esse comando sao usados na div que possui a grid inteira desse modo alterando todos elementos da grid,
+    para alterar apenas um elemento usa-se o comando:
+
+    -justify-self
+    -align-self
+--
+
+--Eleventh
+    Description > Diferenca entre auto-fit e auto-fill
+
+    Esses dois são utilizados para expecificar o 'tamanho' do elemento
+    Ex: grid-template-columns : repeat(AUTO-FIT,minmax(100px,1fr));
+                                       AUTO-FILL 
+
+    A maior diferença entre auto-fill e auto-fit é que quando se ajusta o tamanho da grid, o auto fit
+    altera o tamanho dos elementos para que ele ocupe a grid inteira, já o auto-fill ele adiciona um ou mais
+    elementos com o mesmo tamanho, porém são elementos vazios, ficando um espaço vazio ao final da entre eles.
+
+--
+
+--Twelfth
+    Description > Não utiliza de conceitos novos, apenas um exemplo da facilidade de se arrumar/ajustar elementos em uma
+    grid com os comandos ja conhecidos, na contrução de um artigo 'article'.
+--
+
+--Thirteenth
+    Description > Diferença entre Flex-box e Grid.
+
+    O flex-box é utilizado principalmente para uma unica dimensão (uma row) e além disso é necessário se ter os elementos 
+    que vão estar nele, desse modo:
+
+    No grid: você pensa/planeja o layout primeiro
+    No Flex-box: você pensa/planeja o conteudo primeiro, para então ajustar ao layout.
+
+    Porém é possivel utilizar os dois juntos, pasta trocar o display de um elemento(Ex: header) para um display flex:
+    Ex: 
+    .header{
+        grid-column: 1 / 2;
+        display: flex;
+    }
+
+--
+*/
