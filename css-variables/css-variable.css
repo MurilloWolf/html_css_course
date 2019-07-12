@@ -1,0 +1,110 @@
+/*  Variaveis css
+    
+    Vantagens: 
+    - Evita redundancia de informações
+    - 'Modularização'
+    - Podem ser acessadas pelo DOM
+    
+
+    As variaveis CSS também tem escopo, assim como variaveis nas linguagens de programação,
+    Geralmente são usadas para definir o tema do site (Light, Dark, ...) então costuma-se 
+    declaralas de forma 'global'.
+
+        Como definir uma variavel CSS:
+        .classe{
+
+            --background-clear: #AAA; 
+        }
+
+        Como utilizar : 
+
+        .sub-classe{
+            background: var(--background-clear);
+        }
+
+    As variaveis podem assumir varios valores, não apenas um unico, como cores,
+    podem assumir uma linha de propriedade inteira.
+
+        Ex:
+        .classe{
+            --estilo-borda: 5px solid black;
+
+        }
+
+        .sub-classe{
+            border: var(--estilo-borda);
+        }
+
+    Como definir a variavel para o documento inteiro ?
+        
+        :root{
+            --variavel: valor;
+        }
+
+        O elemento ':root' se refere a tag html/raiz do projeto 
+
+    As variaveis css também podem ser sobreescritas/overwriting, e sempre que usadas,
+    pegarão o seu valor do escopo.
+
+        Ex:
+
+        HTML
+        <html>
+            <nav>
+
+            </nav>
+        </html>
+
+        CSS
+        :root{
+            --fundo: #AAA;
+
+        }
+
+        .nav{
+            --fundo: #FFF;
+
+        }
+
+        .nav{
+            background: var(--fundo);
+        }
+
+        apesar de '--fundo' ser uma variavel global, foi reescrita dentro de 'nav' portanto usara o valor
+        do escopo de nav, porem se for usada fora da tag nav, recebera o valor global, a menos que ocorra outro
+        overwriting.
+
+    
+    ***COMO MUDAR O VALOR DE UMA VARIAVEL COM JS***
+
+    Funções:
+    
+    .querySelector('')                  =>  Retorna o primeiro elemento CSS com o nome especificado por parametro, se não encontrar
+                                            retorna NULL.
+
+                                            Ex : var e = document.querySelector('.myClass'); 
+            
+    .getComputedStyle(element)          =>  Retorna um objeto contendo todos os atribtos e valores CSS do elemento 'element'.
+
+                                            Ex: var style = window.getComputedStyle(element);
+            
+    .getProperty('string')              =>  Retorna na forma de uma string o valor de uma propriedade CSS passada por parametro.
+
+    .style.setProperty('prop','val')    =>  Muda o valor de uma propriedade CSS ,   'prop' => nome da propriedade
+                                                                                    'val'  => valor da propriedade
+                                                                                    
+    
+    </> CODIGO JS
+
+    function troca_cor_de_fundo(cor){
+        let root = document.querySelector(':root')
+        let estilo = getComputedStyle(root)
+        let cor_de_fundo = estilo.getProperty('--fundo')
+
+        console.log('background:',cor_de_fundo)
+
+        root.style.setProperty('--fundo','cor')
+    }
+
+
+*/
