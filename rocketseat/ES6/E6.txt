@@ -1,0 +1,18 @@
+- ES6+
+-- ECMAScript é quem formula a funcionalidade de lingugem Js, o '6', significa
+    que ela é do ano de 2015, o ES7 '7' de 2016 e assim por diante.
+
+- Babel 
+-- Ele faz a portabilidade, por assim dizer, de um codigo Js em ES6, ES7, ES8
+    para navegadores que não suportam essa atualização do Js.
+
+- Assunto do Curso
+    - Webpack : Servidor para desenvolvimento Js 
+    - Classes
+    - Arrow functions
+    - Desestruturação
+    - Rest/spread
+    - Import/export
+    - Async/await
+
+-- Instalar Node & Yarn (gerenciamento de dependencias)
