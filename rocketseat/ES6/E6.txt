@@ -16,3 +16,30 @@
     - Async/await
 
 -- Instalar Node & Yarn (gerenciamento de dependencias)
+
+**TALVE SEJA NECESSÁRIO DESINSTALAR O PACOTE 'CMDTEST' E REINSTALAR O Yarn
+POREM QUANDO VOCE MANDA INSTALAR O YARN E INSTALA DE NOVO O CMDTEST, ENTAO
+AO INVES DE INSTALAR O YARN PELO 'APT INSTALL YARN' USA-SE O COMANDO
+'NPM INSTALL YARN'
+
+    --Após instalar o yarn, instlar o babel e suas dependencias:
+    -- yarn init (Iniciar repositorio)
+    -- yarn add @babel/cli
+    -- yarn add @babel/preset-env
+    -- Criar um arquivo .babelrc (arquivo de configuração do babel)
+    -- Criar um script que  utiliza o babel para transformar o codigo js em um codigo 
+        que qualquer navegador vai entender
+
+        O '-w' faz com que fique monitorando o arquivo e assim que ele for modificado e salvo
+        execute o script 
+
+        Executando manualmente : abrir terminal , comando 'yarn dev'
+        "scripts": {
+             "dev": "babel ./public/js/main.js -o ./bundle.js -w"
+        }
+    
+
+--Operação com vetores
+
+    - Map , serve para percorrer o vetor e retornar algo de dentro dele
+-
