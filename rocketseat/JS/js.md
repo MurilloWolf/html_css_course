@@ -1,5 +1,5 @@
 # **Curso JavaScript**
-#### Switch
+#### Switch 
 
 switch( variavel ){
 case 'M':
@@ -14,10 +14,10 @@ case 'M':
 
 #### indexOf()
 
-    O método indexOf() retorna a posicao do primeiro índice em que o elemento pode ser encontrado
-    no array, retorna -1 caso o mesmo não esteja presente.
-
-    Ex:
+    >O método indexOf() retorna a posicao do primeiro índice em que o elemento pode ser encontrado
+    >no array, retorna -1 caso o mesmo não esteja presente.
+    >
+    >Ex:
     ´´´
     var skills = ["Javascript", "ReactJS", "React Native"];
 
