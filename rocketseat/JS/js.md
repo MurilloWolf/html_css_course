@@ -1,4 +1,4 @@
-#**Curso JavaScript**
+#**Curso JavaScript**#
 ####Switch
 [meu link](www.google.com "links")
 switch( variavel ){
