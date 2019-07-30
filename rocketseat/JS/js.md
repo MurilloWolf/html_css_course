@@ -1,6 +1,6 @@
 # **Curso JavaScript**
-####Switch
-[meu link](www.google.com "links")
+#### Switch
+
 switch( variavel ){
 case 'M':
 
@@ -12,7 +12,7 @@ case 'M':
         default :
     }
 
-####indexOf()
+#### indexOf()
 
     O método indexOf() retorna a posicao do primeiro índice em que o elemento pode ser encontrado
     no array, retorna -1 caso o mesmo não esteja presente.
@@ -28,7 +28,7 @@ case 'M':
     console.log(temHabilidade(skills)) // true ou false
     ´´´
 
-####Operador ternário
+#### Operador ternário
 
     (condicao) ? 'se_condição_true' : 'se_condicao_false'
 
@@ -36,7 +36,7 @@ case 'M':
     var m = 18
     return (m >=18 ) ? 'maior de idade' : 'menor de idade'
 
-####Intervalo : funcao que executa varias vezes dentro de um intervalo
+#### Intervalo : funcao que executa varias vezes dentro de um intervalo
 
     -definindo um intervalo
     setInterval('funcao','intervalo')
@@ -52,7 +52,7 @@ case 'M':
     referenciala, sempre que for referenciar uma função, nao
     se utiliza o '()'
 
-####TimeOut: ao inves de executar varias vezes a cada um intervalo de tempo
+#### TimeOut: ao inves de executar varias vezes a cada um intervalo de tempo
 ele vai esperar um tempo para executar a funcao referenciada
 
     -definindo um timeout
