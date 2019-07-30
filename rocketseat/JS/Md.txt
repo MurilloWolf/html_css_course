@@ -1,0 +1,12 @@
+Formatando arquivo MD
+
+#h1
+##h2
+###h3
+####h4
+...
+
+**Negrito **
+_Italico_
+
+[texto do link](www.link.com "title")
